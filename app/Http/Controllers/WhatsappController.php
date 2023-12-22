@@ -15,6 +15,10 @@ use Twilio\Rest\Client;
 class WhatsappController extends Controller
 {
     //
+    public function cerpApi()
+    {
+        return "APi";
+    }
     public function ChildTest()
     {
 
