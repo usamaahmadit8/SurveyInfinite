@@ -15,6 +15,29 @@ use Twilio\Rest\Client;
 class WhatsappController extends Controller
 {
     //
+    public function login(Request $request)
+    {
+        $envUsername = "mujahid@rcons.co";
+        $envPassword = "Mujahid@rcons123";
+
+        $credentials = $request->only('email', 'password');
+
+        if ($credentials['email'] === $envUsername && $credentials['password'] === $envPassword) {
+            // Authentication successful, create a token
+            $token = $this->generateToken();
+
+            return response()->json(['token' => $token]);
+        }
+
+        // Authentication failed
+        return response()->json(['error' => 'Unauthorized'], 401);
+    }
+
+    private function generateToken()
+    {
+        // Generate a simple token (not suitable for production)
+        return base64_encode(random_bytes(32));
+    }
     public function cerpApi()
     {
         return "APi";

@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('cerpApi', [WhatsappController::class, 'cerpApi']);
+Route::post('login', [WhatsappController::class, 'login']);
