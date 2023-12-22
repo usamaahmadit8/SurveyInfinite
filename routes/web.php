@@ -17,4 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});
 Route::get('child_message', [WhatsappController::class, 'ChildTest']);
+Route::get('child_count', [WhatsappController::class, 'ChildTest']);

@@ -15,7 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+         //$schedule->command('command:whatsappMessage')->dailyAt("15:00"); // ---- 08:00 PM
+    //     $schedule->command('command:whatsappMessage')->dailyAt("5:00"); // ---- 10:00 AM
     }
 
     /**
