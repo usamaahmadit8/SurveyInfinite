@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\WhatsappController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/clear-cache', function() {
+Route::get('/clear-cache', function () {
     $exitCode = Artisan::call('cache:clear');
     // return what you want
 });
 Route::get('child_message', [WhatsappController::class, 'ChildTest']);
 Route::get('child_count', [WhatsappController::class, 'ChildTest']);
+Route::post('cerpApi', [WhatsappController::class, 'cerpApi']);

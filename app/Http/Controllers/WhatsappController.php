@@ -7,6 +7,8 @@ use App\Models\ChildTests\EnglishTest;
 use App\Models\ChildTests\TipTest;
 use App\Models\ChildTests\GetCompleteSchool;
 use App\Models\ChildTests\Title;
+use App\Models\section_1;
+use App\Models\section_2;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,6 +29,11 @@ class WhatsappController extends Controller
             $token = $this->generateToken();
 
             return response()->json(['token' => $token]);
+            $section1Data = section_2::where('section', 'section_1')
+                ->get()
+                ->each(function ($item) {
+                    $item->makeHidden(['columnToExclude1', 'columnToExclude2']); // Add columns to exclude
+                });
         }
 
         // Authentication failed
@@ -38,9 +45,19 @@ class WhatsappController extends Controller
         // Generate a simple token (not suitable for production)
         return base64_encode(random_bytes(32));
     }
-    public function cerpApi()
+    public function cerpApi(Request $request)
     {
-        return "APi";
+        $envUsername = "mujahid@rcons.co";
+        $envPassword = "Mujahid@rcons123";
+        $credentials = $request->only('email', 'password');
+        if ($credentials['email'] === $envUsername && $credentials['password'] === $envPassword) {
+            // Authentication successful, create a token
+            $token = $this->generateToken();
+
+            return response()->json(['token' => $token]);
+        } else {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
     }
     public function ChildTest()
     {
