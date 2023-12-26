@@ -25,3 +25,4 @@ Route::get('/clear-cache', function () {
 Route::get('child_message', [WhatsappController::class, 'ChildTest']);
 Route::get('child_count', [WhatsappController::class, 'ChildTest']);
 Route::post('cerpApi', [WhatsappController::class, 'cerpApi']);
+Route::get('cerpApi2', [WhatsappController::class, 'cerpApi']);
