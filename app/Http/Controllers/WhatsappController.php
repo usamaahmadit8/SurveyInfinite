@@ -19,45 +19,45 @@ class WhatsappController extends Controller
     //
     public function login(Request $request)
     {
-        $envUsername = "mujahid@rcons.co";
-        $envPassword = "Mujahid@rcons123";
+        // $envUsername = "mujahid@rcons.co";
+        // $envPassword = "Mujahid@rcons123";
 
-        $credentials = $request->only('email', 'password');
+        // $credentials = $request->only('email', 'password');
 
-        if ($credentials['email'] === $envUsername && $credentials['password'] === $envPassword) {
-            // Authentication successful, create a token
-            $token = $this->generateToken();
+        // if ($credentials['email'] === $envUsername && $credentials['password'] === $envPassword) {
+        //     // Authentication successful, create a token
+        //     $token = $this->generateToken();
 
-            return response()->json(['token' => $token]);
-            $section1Data = section_2::where('section', 'section_1')
-                ->get()
-                ->each(function ($item) {
-                    $item->makeHidden(['columnToExclude1', 'columnToExclude2']); // Add columns to exclude
-                });
-        }
+        //     return response()->json(['token' => $token]);
+        //     $section1Data = section_2::where('section', 'section_1')
+        //         ->get()
+        //         ->each(function ($item) {
+        //             $item->makeHidden(['columnToExclude1', 'columnToExclude2']); // Add columns to exclude
+        //         });
+        // }
 
-        // Authentication failed
-        return response()->json(['error' => 'Unauthorized'], 401);
+        // // Authentication failed
+        // return response()->json(['error' => 'Unauthorized'], 401);
     }
 
-    private function generateToken()
-    {
-        // Generate a simple token (not suitable for production)
-        return base64_encode(random_bytes(32));
-    }
+    // private function generateToken()
+    // {
+    //     // Generate a simple token (not suitable for production)
+    //     return base64_encode(random_bytes(32));
+    // }
     public function cerpApi(Request $request)
     {
-        $envUsername = "mujahid@rcons.co";
-        $envPassword = "Mujahid@rcons123";
-        $credentials = $request->only('email', 'password');
-        if ($credentials['email'] === $envUsername && $credentials['password'] === $envPassword) {
-            // Authentication successful, create a token
-            $token = $this->generateToken();
+        // $envUsername = "mujahid@rcons.co";
+        // $envPassword = "Mujahid@rcons123";
+        // $credentials = $request->only('email', 'password');
+        // if ($credentials['email'] === $envUsername && $credentials['password'] === $envPassword) {
+        //     // Authentication successful, create a token
+        //     $token = $this->generateToken();
 
-            return response()->json(['token' => $token]);
-        } else {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
+        //     return response()->json(['token' => $token]);
+        // } else {
+        //     return response()->json(['error' => 'Unauthorized'], 401);
+        // }
     }
     public function ChildTest()
     {
